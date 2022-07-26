@@ -15,31 +15,37 @@ const ListItems = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.white", paddingTop: "25px" }}>
-      <List>
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 360,
+        backgroundColor: "white",
+        paddingTop: "25px",
+        marginTop: "25px",
+      }}
+    >
+      <ul>
         {posts &&
           posts.data.map((post: any, index: number) => (
             <>
-              <ListItem
-                disablePadding
+              <div
                 key={index}
                 onClick={(e: any) => {
                   navigate(`/${post.id}`);
                 }}
               >
-                <ListItemButton>
-                  <ListItemText primary={post?.id} />
-                  <ListItemText
-                    secondary={post.title}
-                    sx={{ paddingLeft: "10px", marginLeft: "10px" }}
-                  />
-                </ListItemButton>
-              </ListItem>
+                <button className="flex w-[100%] p-4 hover:bg-gray-100">
+                  <p className="shrink-0 pr-6" style={{ color: "rgba(0, 0, 0, 0.54)" }}>
+                    {post?.id}
+                  </p>
+                  <p className="grow text-left">{post.title}</p>
+                </button>
+              </div>
               <Divider />
             </>
           ))}
-      </List>
-    </Box>
+      </ul>
+    </div>
   );
 };
 
