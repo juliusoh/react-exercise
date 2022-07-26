@@ -6,12 +6,20 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { useParams } from "react-router-dom";
 import useImageService from "../queryHooks/ImageHook";
-import { useGetPostById } from "../queryHooks/PostHook";
+import usePostService, { useGetPostById } from "../queryHooks/PostHook";
+import { QueryCache, useQueryClient } from "@tanstack/react-query";
 
 const CardTemplate = () => {
   const { id } = useParams();
   console.log(id);
-    
+  const queryClient = useQueryClient();
+  const stupidData: any = queryClient.getQueryData(["posts"]);
+  console.log(stupidData, "hehe");
+  const { posts } = usePostService();
+  const myItem = posts?.data.find((item: any) => {
+    return item.id === Number(id);
+  });
+  console.log(myItem, "FUCK YOU");
   const { post } = useGetPostById(id ? id : 1);
   console.log("post", post);
   return (
@@ -26,10 +34,10 @@ const CardTemplate = () => {
         ></CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {post?.data.title}
+            {myItem.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {post?.data.body}
+            {myItem.body}
           </Typography>
         </CardContent>
       </CardActionArea>

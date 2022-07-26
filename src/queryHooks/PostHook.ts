@@ -1,4 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
+// @ts-nocheck
+import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 const getQueryService = () => {
@@ -22,6 +23,7 @@ const getQueryService = () => {
 
 export const useGetPostById = (id: any) => {
   const service = getQueryService();
+  const queryClient = useQueryClient();
   const { data: post } = useQuery(["post", id], () => {
     return service.getPostById(id);
   });
@@ -32,7 +34,7 @@ export const useGetPostById = (id: any) => {
 
 const usePostService = () => {
   const service = getQueryService();
-
+  const queryClient = useQueryClient();
   const { data: posts } = useQuery(["posts"], service.getPosts);
 
   return {
