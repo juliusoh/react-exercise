@@ -14,7 +14,6 @@ const ListItems = () => {
         maxWidth: 360,
         backgroundColor: "white",
         paddingTop: "25px",
-        marginTop: "25px",
       }}
     >
       <ul>
