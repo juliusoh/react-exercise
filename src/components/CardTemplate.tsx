@@ -1,13 +1,6 @@
-import * as React from "react";
-import { Card } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
 import { useParams } from "react-router-dom";
-import useImageService from "../queryHooks/ImageHook";
 import usePostService, { useGetPostById } from "../queryHooks/PostHook";
-import { QueryCache, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 
 const CardTemplate = () => {
   const { id } = useParams();

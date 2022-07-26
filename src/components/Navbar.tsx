@@ -1,6 +1,3 @@
-import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
-import React from "react";
-
 const Navbar = () => {
   return (
     <div
