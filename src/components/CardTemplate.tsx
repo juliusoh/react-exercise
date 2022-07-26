@@ -11,16 +11,14 @@ import { useGetPostById } from "../queryHooks/PostHook";
 const CardTemplate = () => {
   const { id } = useParams();
   console.log(id);
-
-  const { post } = useGetPostById(id);
+    
+  const { post } = useGetPostById(id ? id : 1);
   console.log("post", post);
-  const [image, setImage] = React.useState();
-  React.useEffect(() => {}, [id]);
   return (
     <Card>
       <CardActionArea>
         <CardMedia
-          className="h-[200px]"
+          className="h-[200px] w-[767px]"
           component="img"
           height="140px"
           image={"https://picsum.photos/200/300"}
