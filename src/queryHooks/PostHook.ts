@@ -34,7 +34,6 @@ export const useGetPostById = (id: any) => {
 
 const usePostService = () => {
   const service = getQueryService();
-  const queryClient = useQueryClient();
   const { data: posts } = useQuery(["posts"], service.getPosts);
 
   return {

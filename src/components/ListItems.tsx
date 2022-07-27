@@ -8,14 +8,7 @@ const ListItems = () => {
   const navigate = useNavigate();
 
   return (
-    <div
-      style={{
-        width: "100%",
-        maxWidth: 360,
-        backgroundColor: "white",
-        paddingTop: "25px",
-      }}
-    >
+    <div className="list">
       <ul>
         {posts &&
           posts.data.map((post: any, index: number) => (
@@ -26,11 +19,9 @@ const ListItems = () => {
                   navigate(`/${post.id}`);
                 }}
               >
-                <button className="flex w-[100%] p-4 hover:bg-gray-100">
-                  <p className="shrink-0 pr-6" style={{ color: "rgba(0, 0, 0, 0.54)" }}>
-                    {post?.id}
-                  </p>
-                  <p className="grow text-left">{post.title}</p>
+                <button className="listItem">
+                  <p id="postId">{post?.id}</p>
+                  <p id="postText">{post.title}</p>
                 </button>
               </div>
               <Divider />
