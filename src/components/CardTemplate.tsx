@@ -19,7 +19,6 @@ const CardTemplate = () => {
   const myItem = posts?.data.find((item: any) => {
     return item.id === Number(id);
   });
-  console.log(myItem, "FUCK YOU");
   const { post } = useGetPostById(id ? id : 1);
   console.log("post", post);
   return (
@@ -34,10 +33,10 @@ const CardTemplate = () => {
         ></CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {myItem.title}
+            {myItem ? myItem.title : post?.data.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {myItem.body}
+            {myItem ? myItem.body : post?.data.body}
           </Typography>
         </CardContent>
       </CardActionArea>

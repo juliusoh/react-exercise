@@ -8,7 +8,7 @@ export default function Layout(props: PropsWithChildren) {
     <>
       <Navbar />
       <Container>
-        <div className="flex min-h-[100vh]">{props.children}</div>
+        <div className="flex flex-col min-h-[100vh] sm:flex-row">{props.children}</div>
       </Container>
     </>
   );

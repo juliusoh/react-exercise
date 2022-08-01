@@ -3,15 +3,18 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <CssBaseline>
         <Toolbar>
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{
+              flexGrow: 1,
+              padding: "24px",
+            }}
           >
-            Inflation work
+            React Practice
           </Typography>
         </Toolbar>
       </CssBaseline>
